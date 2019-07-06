@@ -25,6 +25,9 @@ public class IndeedRestController {
                             @RequestParam(required = false) Integer experience)
             throws ExecutionException, InterruptedException {
 
+        if(titles == null)
+            return new JobsList();
+
         JobSearchInfo searchInfo = new JobSearchInfo();
         searchInfo.setCities(cities);
         searchInfo.setTitles(titles);
