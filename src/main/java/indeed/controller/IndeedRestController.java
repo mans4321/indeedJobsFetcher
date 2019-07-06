@@ -19,6 +19,12 @@ public class IndeedRestController {
 
     @GetMapping("/")
     @ResponseBody
+    public String description() {
+        return "fetch jobs";
+    }
+
+    @GetMapping("/fetch")
+    @ResponseBody
     public JobsList getJobs(@RequestParam List<String> titles,
                             @RequestParam List<String> cities,
                             @RequestParam(required = false) List<String> skills,

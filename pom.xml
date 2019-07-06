@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.alzahrani</groupId>
-    <artifactId>IndeedSearchEngine</artifactId>
+    <artifactId>IndeedJobsFetcher</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>IndeedSearchEngine</name>
     <description>Fetch Jobs from indeed</description>
@@ -59,11 +59,10 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>2.0.8</version>
                 <configuration>
-                    <buildpacks>
-                        <buildpack>heroku/exec</buildpack>
-                        <buildpack>heroku/metrics</buildpack>
-                        <buildpack>heroku/jvm</buildpack>
-                    </buildpacks>
+                    <appName>floating-crag-49581</appName>
+                    <processTypes>
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+                    </processTypes>
                 </configuration>
             </plugin>
             <!--
