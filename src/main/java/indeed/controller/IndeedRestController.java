@@ -32,9 +32,7 @@ public class IndeedRestController {
         searchInfo.setCities(cities);
         searchInfo.setTitles(titles);
         searchInfo.setUserExperience(experience);
-        System.out.println();
         searchInfo.setUserSkills(skills);
-        System.out.println(skills);
         Future<JobsList> future = fetchJobFacade.fetch(searchInfo);
         return  future.get();
     }
