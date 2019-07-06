@@ -11,7 +11,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 @RestController
-@RequestMapping("/")
 public class IndeedRestController {
 
 
