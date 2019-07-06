@@ -18,7 +18,7 @@ public class IndeedRestController {
     @Autowired
     private FetchJobFacade fetchJobFacade;
 
-    @GetMapping("/indeedFetcher")
+    @GetMapping("/")
     @ResponseBody
     public JobsList getJobs(@RequestParam List<String> titles,
                             @RequestParam List<String> cities,
