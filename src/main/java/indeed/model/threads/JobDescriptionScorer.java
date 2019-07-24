@@ -1,5 +1,8 @@
 package indeed.model.threads;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import indeed.model.JobScorer;
 import indeed.model.job.JobDescription;
 import indeed.model.job.JobsList;
@@ -66,7 +69,7 @@ public class JobDescriptionScorer {
 			try {
 				while (true) {
 					JobDescription task = taskQueue.take();
-					if (task.getJobTitle() == null) {
+					if (task.getTitle() == null) {
 						workCompleted();
 						break;
 					}
@@ -104,7 +107,8 @@ public class JobDescriptionScorer {
 
 		@Override
 		public void run() {
-			double score = jobScorer.getScore(jobDes.getJobDes());
+			Document doc = Jsoup.parse(jobDes.getJobDescription());
+			double score = jobScorer.getScore(doc.text());
 			jobDes.setScore(score);
 			addJob(jobDes);
 		}

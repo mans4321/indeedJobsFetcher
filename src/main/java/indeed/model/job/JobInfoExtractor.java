@@ -6,19 +6,15 @@ import org.jsoup.nodes.Element;
 
 public class JobInfoExtractor {
 
-	private final String HEADER = "<!DOCTYPE html><html><head><title></title></head><body>";
-	private final String FOOTER = "</body></html>";
-
 	public JobDescription extract(Document page, JobInfoSelectors jobInfoSelectors) {
 
-		final String jobDes = getJobDescription(page, jobInfoSelectors.getJobDes());
 		final String companyName = getCompanyName(page, jobInfoSelectors.getCompany());
 		final String jobTitle = getTitle(page, jobInfoSelectors.getJobTitle());
 		final String city = getCity(page, jobInfoSelectors.getCity());
-		final String jobDesInHtmlFormat = getJobDescriptionInHtmlFormat(page, jobInfoSelectors.getJobDes());
+		final String jobDescription = getJobDescriptionInHtmlFormat(page, jobInfoSelectors.getJobDes());
 	
-		return new JobDescription(jobTitle, companyName, city, jobDes,
-				jobDesInHtmlFormat);
+		return new JobDescription(jobTitle, companyName, city, jobDescription);
+
 	}
 
 	private String getJobDescription(Document doc, String selector) {
@@ -50,6 +46,6 @@ public class JobInfoExtractor {
 
 	private String getJobDescriptionInHtmlFormat(Document doc, String selector) {
 		Element jobDes = doc.selectFirst(selector);
-		return HEADER + jobDes.toString() + FOOTER;
+		return  jobDes.toString();
 	}
 }
