@@ -56,8 +56,8 @@ public class IndeedAPI implements FetchJobsAPI {
 		JobInfoSelectors selector = new JobInfoSelectors();
 		selector.setJobDes("#jobDescriptionText");
 		selector.setCompanyName("div.icl-u-lg-mr--sm.icl-u-xs-mr--xs");
-		selector.setJobTitle("[class$='jobsearch-JobInfoHeader-title']");
-		selector.setCity("div.jobsearch-InlineCompanyRating > div:not(.icl-u-lg-mr--sm)");
+		selector.setJobTitle(".jobsearch-JobInfoHeader-title");
+		selector.setCity(".jobsearch-JobMetadataHeader-iconLabel");
 		JobDescription jobDes = jobInfoExtractor.extract(page, selector);
 		return jobDes;
 	}

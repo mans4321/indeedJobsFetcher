@@ -40,6 +40,6 @@ public class JobInfoExtractor {
 
 	private String getJobDescriptionInHtmlFormat(Document doc, String selector) {
 		Element jobDes = doc.selectFirst(selector);
-		return  jobDes.toString();
+		return  jobDes.children().toString();
 	}
 }
