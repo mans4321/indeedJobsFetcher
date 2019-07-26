@@ -28,7 +28,7 @@ public class IndeedRestController {
     public JobsList getJobs(@RequestParam List<String> titles,
                             @RequestParam List<String> cities,
                             @RequestParam(required = false) List<String> skills,
-                            @RequestParam(required = false) Integer experience)
+                            @RequestParam(required = false ) Integer experience)
             throws ExecutionException, InterruptedException {
 
         if(titles == null)

@@ -8,7 +8,6 @@ public class JobDescription implements Comparable<JobDescription> {
 	private String city;
 	private String url;
 	private String jobDescription;
-	private String jobDesInHtmlFormat;
 	private String website;
 
 	

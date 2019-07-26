@@ -17,12 +17,6 @@ public class JobInfoExtractor {
 
 	}
 
-	private String getJobDescription(Document doc, String selector) {
-		Element htmlJobDes = doc.selectFirst(selector);
-		String jobDes = htmlJobDes.text();
-		jobDes = CleanText.clean(jobDes);
-		return jobDes;
-	}
 
 	private String getCompanyName(Document doc, String selector) {
 		String companyName = doc.selectFirst(selector).text();
